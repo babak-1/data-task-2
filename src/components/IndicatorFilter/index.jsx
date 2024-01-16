@@ -6,7 +6,7 @@ import { setSelectedIndicatorRedux } from "../../store/reducers/indicatorsReduce
 const IndicatorFilter = () => {
   const dispatch = useDispatch();
   const indicatorData = useSelector((state) => state.indicators);
-  const [selectedIndicator, setSelectedIndicator] = useState("");
+  const [selectedIndicator, setSelectedIndicator] = useState("Broad Money M3");
 
   useEffect(() => {
     dispatch(getCountriesThunk(selectedIndicator));

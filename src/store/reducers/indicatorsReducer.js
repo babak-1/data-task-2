@@ -4,7 +4,7 @@ import { getIndicatorsThunk } from "../actions/filterActions";
 const sectorState = {
   loading: false,
   indicator: [],
-  selectedIndicator: null,
+  selectedIndicator: "Broad Money M3",
   error: null,
 };
 

@@ -8,9 +8,12 @@ const CountryFilter = () => {
   const countryData = useSelector((state) => state.countries);
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const selectedCountryRedux = selectedCountries.join(";");
   dispatch(setSelectedCountryRedux(selectedCountryRedux));
   console.log(selectedCountryRedux);
+
   const handleCheckboxChange = (item) => {
     if (selectAll) {
       setSelectedCountries([]);
@@ -28,15 +31,18 @@ const CountryFilter = () => {
 
   const handleSelectAllChange = () => {
     setSelectAll((prevSelectAll) => !prevSelectAll);
-
     setSelectedCountries(selectAll ? [] : countryData.country);
+  };
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
   };
 
   return (
     <div className={style.container}>
       <h3 className={style.headding}>Country</h3>
       <div className={style.optionCont}>
-        <div className={style.optionHeader}>
+        <div className={style.optionHeader} onClick={handleMenuToggle}>
           <input
             type="text"
             className={style.optionHeaderInput}
@@ -45,26 +51,28 @@ const CountryFilter = () => {
           />
           <div className={style.arrow}>&#9660;</div>
         </div>
-        <ul className={style.ul}>
-          <li className={style.li}>
-            <span> Hamısı seç</span>{" "}
-            <input
-              type="checkbox"
-              onChange={handleSelectAllChange}
-              checked={selectAll}
-            />
-          </li>
-          {countryData.country.map((item, index) => (
-            <li className={style.li} key={index}>
-              <span> {item}</span>{" "}
+        {menuOpen && (
+          <ul className={style.ul}>
+            <li className={style.li}>
+              <span> Hamısı seç</span>{" "}
               <input
                 type="checkbox"
-                onChange={() => handleCheckboxChange(item)}
-                checked={selectedCountries.includes(item)}
+                onChange={handleSelectAllChange}
+                checked={selectAll}
               />
             </li>
-          ))}
-        </ul>
+            {countryData.country.map((item, index) => (
+              <li className={style.li} key={index}>
+                <span> {item}</span>{" "}
+                <input
+                  type="checkbox"
+                  onChange={() => handleCheckboxChange(item)}
+                  checked={selectedCountries.includes(item)}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

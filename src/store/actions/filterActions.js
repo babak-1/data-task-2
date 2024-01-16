@@ -41,9 +41,7 @@ export const getYearsThunk = createAsyncThunk(
   "getYear/fetchGetYear",
   async (countries, indicator) => {
     const response = await api.getYears(countries, indicator);
-    console.log(response, "reduxres");
     const years = response?.data;
-    console.log(years, "reduxda");
     return years;
   }
 );

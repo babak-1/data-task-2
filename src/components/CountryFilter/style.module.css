@@ -34,25 +34,29 @@
     .optionHeader {
       position: relative;
       .optionHeaderInput {
-        background-color: #4a628a;
+        background-color: #37598e;
         border: 1px solid #a7b4ca;
         outline: none;
-        padding: 3px;
+        padding: 6px;
         width: 140px;
       }
 
       .arrow {
         position: absolute;
-        background-color: #4a628a;
+        background-color: #37598e;
         right: 5px;
         top: 0px;
-        font-size: 13px;
+        font-size: 11px;
         border-left: 1px solid #a7b4ca;
         height: 100%;
         padding-left: 6px;
+        padding: 0px 6px 0px 8px;
         display: flex;
         justify-content: center;
         align-items: center;
+        color: #a7b4ca;
+        border-top: 1px solid #a7b4ca;
+        border-bottom: 1px solid #a7b4ca;
       }
     }
   }

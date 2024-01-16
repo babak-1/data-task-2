@@ -6,7 +6,6 @@ export const getSectorThunk = createAsyncThunk(
   async () => {
     const response = await api.getSectors();
     const sectors = response?.data;
-    console.log(sectors, "sektordayam");
     return sectors;
   }
 );
@@ -16,7 +15,6 @@ export const getSubSectorThunk = createAsyncThunk(
   async (sector) => {
     const response = await api.getSubSectors(sector);
     const subSectors = response?.data;
-    console.log(subSectors, "subsectordayam");
     return subSectors;
   }
 );
@@ -26,7 +24,6 @@ export const getIndicatorsThunk = createAsyncThunk(
   async (subsector) => {
     const response = await api.getIndicators(subsector);
     const indicators = response?.data;
-    console.log(indicators, "indicators");
     return indicators;
   }
 );
@@ -36,7 +33,17 @@ export const getCountriesThunk = createAsyncThunk(
   async (indicator) => {
     const response = await api.getCountries(indicator);
     const countries = response?.data;
-    console.log(countries, "country");
     return countries;
+  }
+);
+
+export const getYearsThunk = createAsyncThunk(
+  "getYear/fetchGetYear",
+  async (countries, indicator) => {
+    const response = await api.getYears(countries, indicator);
+    console.log(response, "reduxres");
+    const years = response?.data;
+    console.log(years, "reduxda");
+    return years;
   }
 );

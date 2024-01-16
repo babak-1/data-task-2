@@ -2,10 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import style from "./style.module.css";
 import { useEffect, useState } from "react";
 import { getCountriesThunk } from "../../store/actions/filterActions";
+import { setSelectedIndicatorRedux } from "../../store/reducers/indicatorsReducer";
 const IndicatorFilter = () => {
   const dispatch = useDispatch();
   const indicatorData = useSelector((state) => state.indicators);
-  const [selectedIndicator, setSelectedIndicator] = useState("Broad Money M3");
+  const [selectedIndicator, setSelectedIndicator] = useState("");
 
   useEffect(() => {
     dispatch(getCountriesThunk(selectedIndicator));
@@ -15,6 +16,7 @@ const IndicatorFilter = () => {
     const selectedValue = e.target.value;
     setSelectedIndicator(selectedValue);
     dispatch(getCountriesThunk(selectedValue));
+    dispatch(setSelectedIndicatorRedux(selectedValue));
   };
 
   return (

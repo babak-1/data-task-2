@@ -4,13 +4,18 @@ import { getIndicatorsThunk } from "../actions/filterActions";
 const sectorState = {
   loading: false,
   indicator: [],
+  selectedIndicator: null,
   error: null,
 };
 
 const indicatorReducer = createSlice({
   name: "indicator",
   initialState: sectorState,
-  reducers: {},
+  reducers: {
+    setSelectedIndicatorRedux: (state, action) => {
+      state.selectedIndicator = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getIndicatorsThunk.pending, (state) => {
@@ -26,5 +31,5 @@ const indicatorReducer = createSlice({
       });
   },
 });
-
+export const { setSelectedIndicatorRedux } = indicatorReducer.actions;
 export default indicatorReducer.reducer;

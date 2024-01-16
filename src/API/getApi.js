@@ -5,7 +5,7 @@ export async function getCountries(indicator) {
 }
 
 export async function getYears(countries, indicator) {
-  return api.get(`/api/years/&countries=${countries}&indicator=${indicator}`);
+  return api.get(`/api/years/?countries=${countries}&indicator=${indicator}`);
 }
 
 export async function getSectors() {

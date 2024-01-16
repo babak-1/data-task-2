@@ -1,18 +1,64 @@
-/* .container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  .headding {
+    color: #a7b4ca;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .optionCont {
+    .ul {
+      height: 100px;
+      overflow-x: scroll;
+      background-color: #4a628a;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      width: 140px;
+
+      .li {
+        display: flex;
+        justify-content: space-between;
+        padding: 2px 5px;
+      }
+    }
+    ul::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .optionHeader {
+      position: relative;
+      .optionHeaderInput {
+        background-color: #4a628a;
+        border: 1px solid #a7b4ca;
+        outline: none;
+        padding: 3px;
+        width: 140px;
+      }
+
+      .arrow {
+        position: absolute;
+        background-color: #4a628a;
+        right: 5px;
+        top: 0px;
+        font-size: 13px;
+        border-left: 1px solid #a7b4ca;
+        height: 100%;
+        padding-left: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
 }
 
-.headding {
-  color: #a7b4ca;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.select {
+/* .select {
   appearance: none;
   outline: 10px red;
   border: 1px solid #37598e;

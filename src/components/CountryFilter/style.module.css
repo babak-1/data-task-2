@@ -1,0 +1,53 @@
+/* .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.headding {
+  color: #a7b4ca;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.select {
+  appearance: none;
+  outline: 10px red;
+  border: 1px solid #37598e;
+
+  box-shadow: none;
+  flex: 1;
+  padding: 0.1em;
+  color: #a7b4ca;
+
+  background-color: #37598e;
+  background-image: none;
+  cursor: pointer;
+}
+.select::-ms-expand {
+  display: none;
+}
+.optionCont {
+  position: relative;
+  display: flex;
+  width: 10em;
+  height: 2em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+.optionCont::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 16px;
+  background: #37598e;
+  pointer-events: none;
+  border: 1px solid #a7b4ca;
+  color: #a7b4ca;
+}
+.optionCont:hover::after {
+  color: black;
+} */

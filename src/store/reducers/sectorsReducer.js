@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSectorThunk } from "../actions/filterActions";
 
-const sectorState = {
+const indicatorState = {
   loading: false,
   sector: [],
   error: null,
@@ -9,7 +9,7 @@ const sectorState = {
 
 const sectorReducer = createSlice({
   name: "sector",
-  initialState: sectorState,
+  initialState: indicatorState,
   reducers: {},
   extraReducers: (builder) => {
     builder

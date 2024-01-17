@@ -12,7 +12,9 @@
   }
 
   .optionCont {
+    position: relative;
     .ul {
+      position: absolute;
       height: 100px;
       overflow-x: scroll;
       background-color: #4a628a;
@@ -20,11 +22,21 @@
       flex-direction: column;
       border-radius: 6px;
       width: 140px;
+      z-index: 2;
 
       .li {
         display: flex;
         justify-content: space-between;
         padding: 2px 5px;
+        color: #a7b4ca;
+
+        input {
+          cursor: pointer;
+        }
+      }
+
+      .li:hover {
+        color: black;
       }
     }
     ul::-webkit-scrollbar {
@@ -39,6 +51,7 @@
         outline: none;
         padding: 6px;
         width: 140px;
+        color: #a7b4ca;
       }
 
       .arrow {
@@ -57,47 +70,12 @@
         color: #a7b4ca;
         border-top: 1px solid #a7b4ca;
         border-bottom: 1px solid #a7b4ca;
+        cursor: pointer;
+      }
+
+      .arrow:hover {
+        color: black;
       }
     }
   }
 }
-
-/* .select {
-  appearance: none;
-  outline: 10px red;
-  border: 1px solid #37598e;
-
-  box-shadow: none;
-  flex: 1;
-  padding: 0.1em;
-  color: #a7b4ca;
-
-  background-color: #37598e;
-  background-image: none;
-  cursor: pointer;
-}
-.select::-ms-expand {
-  display: none;
-}
-.optionCont {
-  position: relative;
-  display: flex;
-  width: 10em;
-  height: 2em;
-  border-radius: 0.25em;
-  overflow: hidden;
-}
-.optionCont::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px 16px;
-  background: #37598e;
-  pointer-events: none;
-  border: 1px solid #a7b4ca;
-  color: #a7b4ca;
-}
-.optionCont:hover::after {
-  color: black;
-} */

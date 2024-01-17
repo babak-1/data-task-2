@@ -39,9 +39,12 @@ export const getCountriesThunk = createAsyncThunk(
 
 export const getYearsThunk = createAsyncThunk(
   "getYear/fetchGetYear",
-  async (countries, indicator) => {
+  async ({ countries, indicator }) => {
+    console.log(countries, "indidi");
+    console.log(indicator, "indi");
     const response = await api.getYears(countries, indicator);
     const years = response?.data;
+    console.log(years, "getYears");
     return years;
   }
 );

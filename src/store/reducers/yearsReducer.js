@@ -5,12 +5,17 @@ const initialState = {
   loading: false,
   year: [],
   error: null,
+  selectedYear: "2019",
 };
 
 const yearReducer = createSlice({
   name: "year",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setSelectedYearRedux: (state, action) => {
+      state.selectedYear = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getYearsThunk.pending, (state) => {
@@ -26,5 +31,6 @@ const yearReducer = createSlice({
       });
   },
 });
+export const { setSelectedYearRedux } = yearReducer.actions;
 
 export default yearReducer.reducer;

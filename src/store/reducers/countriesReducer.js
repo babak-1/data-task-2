@@ -4,7 +4,7 @@ import { getCountriesThunk } from "../actions/filterActions";
 const countryState = {
   loading: false,
   country: [],
-  selectedCountry: null,
+  selectedCountry: "Australia",
   error: null,
 };
 

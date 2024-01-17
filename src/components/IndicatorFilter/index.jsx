@@ -12,8 +12,8 @@ const IndicatorFilter = () => {
     dispatch(getCountriesThunk(selectedIndicator));
   }, []);
 
-  const handleIndicatorChange = (e) => {
-    const selectedValue = e.target.value;
+  const handleIndicatorChange = (selectedValue) => {
+    // const selectedValue = e.target.value;
     setSelectedIndicator(selectedValue);
     dispatch(getCountriesThunk(selectedValue));
     dispatch(setSelectedIndicatorRedux(selectedValue));
@@ -27,7 +27,7 @@ const IndicatorFilter = () => {
           name=""
           id=""
           className={style.select}
-          onChange={handleIndicatorChange}
+          onChange={(e) => handleIndicatorChange(e.target.value)}
           value={selectedIndicator}
         >
           {indicatorData?.indicator.map((item, index) => (

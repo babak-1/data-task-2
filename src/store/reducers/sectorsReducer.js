@@ -1,16 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSectorThunk } from "../actions/filterActions";
 
-const indicatorState = {
+const sectorState = {
   loading: false,
   sector: [],
   error: null,
+  currentSector: "Economy",
 };
 
 const sectorReducer = createSlice({
   name: "sector",
-  initialState: indicatorState,
-  reducers: {},
+  initialState: sectorState,
+  reducers: {
+    setCurrentSector: (state, action) => {
+      state.currentSector = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getSectorThunk.pending, (state) => {
@@ -26,5 +31,5 @@ const sectorReducer = createSlice({
       });
   },
 });
-
+export const { setCurrentSector } = sectorReducer.actions;
 export default sectorReducer.reducer;

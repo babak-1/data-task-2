@@ -17,11 +17,10 @@ const YearFilter = () => {
         indicator: selectedIndicator,
       })
     );
-  }, [selectedCountry, selectedIndicator, dispatch]);
+  }, [selectedCountry, selectedIndicator]);
 
-  const handleYearChange = (selectedValue) => {
-    dispatch(getYearsThunk(selectedValue));
-    dispatch(setSelectedYearRedux(selectedValue));
+  const handleYearChange = (e) => {
+    dispatch(setSelectedYearRedux(e.target.value));
   };
 
   return (
@@ -32,7 +31,7 @@ const YearFilter = () => {
           name=""
           id=""
           className={style.select}
-          onChange={(e) => handleYearChange(e.target.value)}
+          onChange={handleYearChange}
           value={selectedYear}
         >
           {year?.map((item, index) => (

@@ -1,5 +1,6 @@
 import CountryFilter from "../CountryFilter";
 import IndicatorFilter from "../IndicatorFilter";
+import RankSlider from "../RankSlider";
 import SectorFilter from "../SectorFilter";
 import SubSector from "../SubSectorFilter";
 import YearFilter from "../YearsFilter";
@@ -13,6 +14,7 @@ const FilterContainer = () => {
       <SectorFilter />
       <SubSector />
       <IndicatorFilter />
+      <RankSlider />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getIndicatorsThunk } from "../actions/filterActions";
 
-const sectorState = {
+const indicatorState = {
   loading: false,
   indicator: [],
   selectedIndicator: "Broad Money M3",
@@ -10,7 +10,7 @@ const sectorState = {
 
 const indicatorReducer = createSlice({
   name: "indicator",
-  initialState: sectorState,
+  initialState: indicatorState,
   reducers: {
     setSelectedIndicatorRedux: (state, action) => {
       state.selectedIndicator = action.payload;

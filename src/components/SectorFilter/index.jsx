@@ -1,24 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./style.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   getSectorThunk,
   getSubSectorThunk,
 } from "../../store/actions/filterActions";
+import { setCurrentSector } from "../../store/reducers/sectorsReducer";
 const SectorFilter = () => {
   const dispatch = useDispatch();
   const sectorData = useSelector((state) => state.sectors);
-  const [selectedSector, setSelectedSector] = useState("Economy");
+  const { currentSector } = useSelector((state) => state.sectors);
+  console.log(currentSector, "buudubudu");
 
   useEffect(() => {
     dispatch(getSectorThunk());
-    dispatch(getSubSectorThunk(selectedSector));
+    dispatch(getSubSectorThunk(currentSector));
   }, []);
 
   const handleSectorChange = (e) => {
     const selectedValue = e.target.value;
-    setSelectedSector(selectedValue);
-
+    dispatch(setCurrentSector(selectedValue));
     dispatch(getSubSectorThunk(selectedValue));
   };
   return (
@@ -30,7 +31,7 @@ const SectorFilter = () => {
           id=""
           className={style.select}
           onChange={handleSectorChange}
-          value={selectedSector}
+          value={currentSector}
         >
           {sectorData?.sector.map((item, index) => (
             <option value={item} className={style.option} key={index}>

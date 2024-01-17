@@ -5,12 +5,17 @@ const subSectorState = {
   loading: false,
   subSector: [],
   error: null,
+  currentSubsector: "Money",
 };
 
 const subSectorReducer = createSlice({
   name: "subSector",
   initialState: subSectorState,
-  reducers: {},
+  reducers: {
+    setCurrentSubsector: (state, action) => {
+      state.currentSubsector = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getSubSectorThunk.pending, (state) => {
@@ -26,5 +31,5 @@ const subSectorReducer = createSlice({
       });
   },
 });
-
+export const { setCurrentSubsector } = subSectorReducer.actions;
 export default subSectorReducer.reducer;

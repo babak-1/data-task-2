@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./style.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { setSelectedCountryRedux } from "../../store/reducers/countriesReducer";
 
 const CountryFilter = () => {
   const dispatch = useDispatch();
   const countryData = useSelector((state) => state.countries);
-  const [selectedCountries, setSelectedCountries] = useState([]);
+  const [selectedCountries, setSelectedCountries] = useState(["Australia"]);
   const [selectAll, setSelectAll] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const selectedCountryRedux = selectedCountries.join(";");
-  dispatch(setSelectedCountryRedux(selectedCountryRedux));
-  console.log(selectedCountryRedux);
+  useEffect(() => {
+    dispatch(setSelectedCountryRedux(selectedCountryRedux));
+  }, [dispatch, selectedCountryRedux]);
+  console.log(selectedCountryRedux, "reduximda secilen country");
 
   const handleCheckboxChange = (item) => {
     if (selectAll) {

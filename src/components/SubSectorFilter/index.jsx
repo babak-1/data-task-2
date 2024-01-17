@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import style from "./style.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getIndicatorsThunk } from "../../store/actions/filterActions";
+import { setCurrentSubsector } from "../../store/reducers/subSectorsReducer";
 
 const SubSector = () => {
   const dispatch = useDispatch();
   const subSectorData = useSelector((state) => state.subSectors);
-  const [selectedSubSector, setSelectedSubSector] = useState("Money");
+  const { currentSubsector } = useSelector((state) => state.subSectors);
+  const { currentSector } = useSelector((state) => state.sectors);
+
+  console.log(currentSubsector, "current");
 
   useEffect(() => {
-    dispatch(getIndicatorsThunk(selectedSubSector));
-  }, []);
+    dispatch(getIndicatorsThunk(currentSubsector));
+  }, [dispatch, currentSubsector, currentSector]);
 
   const handleSubSectorChange = (e) => {
     const selectedValue = e.target.value;
-    setSelectedSubSector(selectedValue);
+    dispatch(setCurrentSubsector(selectedValue));
     dispatch(getIndicatorsThunk(selectedValue));
   };
 
@@ -27,7 +31,7 @@ const SubSector = () => {
           id=""
           className={style.select}
           onChange={handleSubSectorChange}
-          value={selectedSubSector}
+          value={currentSubsector}
         >
           {subSectorData?.subSector.map((item, index) => (
             <option value={item} className={style.option} key={index}>

@@ -6,14 +6,14 @@ import { setSelectedIndicatorRedux } from "../../store/reducers/indicatorsReduce
 const IndicatorFilter = () => {
   const dispatch = useDispatch();
   const indicatorData = useSelector((state) => state.indicators);
+  console.log(indicatorData?.selectedIndicator, "secilen indicator");
   const [selectedIndicator, setSelectedIndicator] = useState("Broad Money M3");
 
   useEffect(() => {
     dispatch(getCountriesThunk(selectedIndicator));
-  }, []);
+  }, [dispatch, selectedIndicator]);
 
   const handleIndicatorChange = (selectedValue) => {
-    // const selectedValue = e.target.value;
     setSelectedIndicator(selectedValue);
     dispatch(getCountriesThunk(selectedValue));
     dispatch(setSelectedIndicatorRedux(selectedValue));
